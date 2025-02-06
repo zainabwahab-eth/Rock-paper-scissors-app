@@ -100,7 +100,7 @@ h1 {
     position: absolute;
 }
 
-.rock {
+.rock-btn {
     bottom: -40px;
     left: 55%;
     transform: translateX(-50%);
@@ -108,14 +108,14 @@ h1 {
     cursor: pointer;
 }
 
-.scissors {
+.scissors-btn {
     top: -30px;
     right: -30px;
     border: 10px solid #f8b400;
     cursor: pointer;
 }
 
-.paper {
+.paper-btn {
     top: -30px;
     left: -30px;
     border: 10px solid #4a90e2;
@@ -181,10 +181,10 @@ h1 {
 
 .user-dark, .house-dark {
     position: absolute;
-    top: 50%;
+    top: 52%;
     width: 100px;
     height: 100px;
-    background-color: #1f1f1f;
+    background-color: rgba(0, 0, 0, 0.25);
     border-radius: 50%;
     z-index: 2;
 }
@@ -200,8 +200,19 @@ h1 {
     border-radius: 50%;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     background-color: var(--white);
-    border: 10px solid #d13e3e;
     z-index: 5;
+}
+
+.rock {
+    border: 10px solid #d13e3e;
+}
+
+.paper {
+    border: 10px solid #4a90e2;
+}
+
+.scissors {
+    border: 10px solid #f8b400;
 }
 
 .play-again-btn {
@@ -251,9 +262,3 @@ h1 {
     backdrop-filter: blur(1px);
     z-index: 5;
 }
-
-/* @media screen and (max-width: 768px) {
-    nav {
-        width: 300px;
-    }
-} */
