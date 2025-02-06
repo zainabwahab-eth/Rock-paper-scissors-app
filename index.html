@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<link>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css" />
+<title>Rock-paper-scissors</title>
+</head>
+
+<body>
+    <section class="content">
+        <nav>
+            <div class="house-score-card">
+                <p>House Score<span class="house-score">0</span></p>
+            </div>
+            <div class="hi-text">
+                <h1>Rock</h1>
+                <h1>Paper</h1>
+                <h1>Scissors</h1>
+            </div>
+
+            <div class="user-score-card">
+                <p>Your Score<span class="user-score">0</span></p>
+            </div>
+        </nav>
+        <main>
+            <div class="rules-modal hidden">
+                <div class="rules-heading">
+                    <h2>Rules</h2>
+                    <img class="close-btn" src="images/icon-close.svg" />
+                </div>
+                <img src="images/image-rules.svg" class="rules-image" />
+            </div>
+            <div class="overlay hidden"></div>
+
+
+            <section class="game-notpicked">
+                <img src="images/bg-triangle.svg" class="triangle" />
+                <div class="pick rock">
+                    <img src="images/icon-rock.svg" />
+                </div>
+                <div class="pick paper">
+                    <img src="images/icon-paper.svg" />
+                </div>
+                <div class="pick scissors">
+                    <img src="images/icon-scissors.svg" />
+                </div>
+            </section>
+
+            <section class="game">
+                <div class="game-picked hidden">
+                    <div class="user">
+                        <p class="user-text">You picked</p>
+                        <div class="user-dark"></div>
+                        <div class=" user-pick">
+                            <img class="user-img" src="" />
+                        </div>
+                    </div>
+                    <div class="result-cntn hidden">
+                        <h2 class="result-text">You Win</h2>
+                    </div>
+                    <div class="house">
+                        <p class="house-text">The house picked</p>
+                        <div class="house-dark"></div>
+                        <div class="house-pick">
+                            <img class="house-img" src="" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="round-result hidden">
+                    <h2 class="round-result-text">You win the Game</h2>
+                    <button class="play-again-btn">Play Again</button>
+                </div>
+            </section>
+            <button class="rules-btn">Rules</button>
+            <h3 class="round">Round <span class="round-number">1</span></h3>
+        </main>
+    </section>
+    <script src="script.js"></script>
+</body>
+
+</html>

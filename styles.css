@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: linear-gradient(90deg, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+    --rock: linear-gradient(90deg, hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+    --white: hsl(0, 0%, 100%);
+    --outline: hsl(217, 16%, 45%);
+    --dark-text: hsl(229, 25%, 31%);
+    --score: hsl(229, 64%, 46%);
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Barlow Semi Condensed", sans-serif;
+    background: var(--background);
+    color: var(--white);
+    text-transform: uppercase;
+    margin: 20px auto;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid var(--outline);
+    margin: 0 auto;
+    width: 500px;
+    min-width: 100px;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.h1-text {
+    display: flex;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.user-score-card, .house-score-card {
+    text-align: center;
+    padding: 12px 20px;
+    background-color: var(--white);
+    border-radius: 8px;
+    color: var(--dark-text);
+}
+
+.user-score-card, .house-score-card p {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.user-score, .house-score {
+    display: block;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--score);
+}
+
+
+.game-notpicked {
+    position: relative;
+    width: 300px;
+    height: 250px;
+}
+
+.pick {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--white);
+    position: absolute;
+}
+
+.rock {
+    bottom: -40px;
+    left: 55%;
+    transform: translateX(-50%);
+    border: 10px solid #d13e3e;
+    cursor: pointer;
+}
+
+.scissors {
+    top: -30px;
+    right: -30px;
+    border: 10px solid #f8b400;
+    cursor: pointer;
+}
+
+.paper {
+    top: -30px;
+    left: -30px;
+    border: 10px solid #4a90e2;
+    cursor: pointer;
+}
+
+.pick img {
+    width: 50px;
+}
+
+.rules-btn {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    padding: 10px 20px;
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.round {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    padding: 10px 20px;
+}
+
+.game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game-picked {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    height: 250px;
+}
+
+.round-result {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.user,
+.house {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.user-dark, .house-dark {
+    position: absolute;
+    top: 50%;
+    width: 100px;
+    height: 100px;
+    background-color: #1f1f1f;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.user-pick,
+.house-pick {
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--white);
+    border: 10px solid #d13e3e;
+    z-index: 5;
+}
+
+.play-again-btn {
+    /* opacity: 0; */
+    padding: 4px 16px;
+    background: var(--white);
+    color: var(--dark-text);
+    border: 2px solid var(--white);
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.rules-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: var(--white);
+    padding: 20px;
+    color: var(--dark-text);
+    border-radius: 12px;
+    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+.rules-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-btn {
+    cursor: pointer;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(1px);
+    z-index: 5;
+}
+
+/* @media screen and (max-width: 768px) {
+    nav {
+        width: 300px;
+    }
+} */
