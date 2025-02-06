@@ -1,6 +1,10 @@
 const rockBtn = document.querySelector(".rock-btn");
 const paperBtn = document.querySelector(".paper-btn");
 const scissorsBtn = document.querySelector(".scissors-btn");
+const closeBtn = document.querySelector(".close-btn");
+const rulesBtn = document.querySelector(".rules-btn");
+const playAgainBtn = document.querySelector(".play-again-btn");
+
 const gameNotPicked = document.querySelector(".game-notpicked");
 const gamePicked = document.querySelector(".game-picked");
 const userPickCntn = document.querySelector(".user-pick");
@@ -12,10 +16,7 @@ const resultText = document.querySelector(".result-text");
 const scoreUser = document.querySelector(".user-score");
 const scoreHouse = document.querySelector(".house-score");
 const rulesModal = document.querySelector(".rules-modal");
-const closeBtn = document.querySelector(".close-btn");
 const overlay = document.querySelector(".overlay");
-const rulesBtn = document.querySelector(".rules-btn");
-const playAgainBtn = document.querySelector(".play-again-btn");
 const roundResultCntn = document.querySelector(".round-result");
 const roundResult = document.querySelector(".round-result-text");
 const roundNumber = document.querySelector(".round-number");
@@ -41,22 +42,26 @@ const resetGame = function () {
   gameNotPicked.classList.remove("hidden");
 };
 
+// Open rules modal
 const openModal = function () {
   rulesModal.classList.remove("hidden");
   overlay.classList.remove("hidden");
 };
 
+// Close rules modal
 const closeModal = function () {
   rulesModal.classList.add("hidden");
   overlay.classList.add("hidden");
 };
 
+// Get random pick for house
 const getHousePick = function () {
   const options = ["rock", "paper", "scissors"];
   const index = Math.floor(Math.random() * options.length);
   return options[index];
 };
 
+// Display house pick choice to the screen
 const displayHousePicks = function () {
   house = getHousePick();
   setTimeout(function () {
@@ -68,7 +73,8 @@ const displayHousePicks = function () {
   return house;
 };
 
-function hasuserWon(user, house) {
+//Check if user won
+const hasuserWon = function(user, house) {
   return (
     (user === "rock" && house === "scissors") ||
     (user === "scissors" && house === "paper") ||
@@ -76,8 +82,8 @@ function hasuserWon(user, house) {
   );
 }
 
+// Display the round result
 const displayResult = function (user, house) {
-  console.log(user, house);
   if (hasuserWon(user, house)) {
     resultCntn.classList.remove("hidden");
     resultText.textContent = "You Win";
@@ -94,6 +100,7 @@ const displayResult = function (user, house) {
   }
 };
 
+// Display UI
 const displayUserPicks = function () {
   gameNotPicked.classList.add("hidden");
   gamePicked.classList.remove("hidden");
@@ -101,12 +108,10 @@ const displayUserPicks = function () {
   userImage.src = `images/icon-${userPick}.svg`;
   userPickCntn.classList.add(`${userPick}`);
   round++;
-  console.log(userPick);
 
   const house = displayHousePicks();
   setTimeout(function () {
     displayResult(userPick, house);
-    console.log(house);
   }, 2000);
 
   if (round < 5) {
@@ -136,10 +141,9 @@ const displayUserPicks = function () {
       }
     }, 4000);
   }
-
-  console.log(round);
 };
 
+// Event Listeners
 rockBtn.addEventListener("click", function () {
   userPick = "rock";
   displayUserPicks();
@@ -160,3 +164,5 @@ playAgainBtn.addEventListener("click", resetGame);
 rulesBtn.addEventListener("click", openModal);
 
 closeBtn.addEventListener("click", closeModal);
+
+overlay.addEventListener("click", closeModal);

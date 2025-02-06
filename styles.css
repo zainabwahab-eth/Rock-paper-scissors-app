@@ -153,6 +153,7 @@ h1 {
 }
 
 .game-picked {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -181,7 +182,7 @@ h1 {
 
 .user-dark, .house-dark {
     position: absolute;
-    top: 52%;
+    top: 40%;
     width: 100px;
     height: 100px;
     background-color: rgba(0, 0, 0, 0.25);
@@ -216,7 +217,6 @@ h1 {
 }
 
 .play-again-btn {
-    /* opacity: 0; */
     padding: 4px 16px;
     background: var(--white);
     color: var(--dark-text);
@@ -261,4 +261,18 @@ h1 {
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(1px);
     z-index: 5;
+}
+
+@media screen and (max-width: 600px) {
+    .content {
+        gap: 120px;
+    }
+
+    .body {
+        width: 100%;
+    }
+
+    nav {
+        width: 400px;   
+    }
 }
